@@ -26,10 +26,129 @@
   * </ref-doc>
  * <ref-doc-list></ref-doc-list>
  */
+class RefDocTag extends HtmlElement {
+    constructor(){
+        super();
+        //hoge
+    }
+
+    connectedCallback(){
+        referenceDocs.fn.refDocTagFunc(this);
+    }
+}
+class RefDocIdTag extends HtmlElement {
+    constructor(){
+        super();
+        //hoge
+    }
+
+    connectedCallback(){
+        referenceDocs.fn.refDocIdTagFunc(this);
+    }
+}
+class RefDocNameTag extends HtmlElement {
+    constructor(){
+        super();
+        //hoge
+    }
+
+    connectedCallback(){
+        referenceDocs.fn.refDocNameTagFunc(this);
+    }
+}
+class RefDocAuthorTag extends HtmlElement {
+    constructor(){
+        super();
+        //hoge
+    }
+
+    connectedCallback(){
+        referenceDocs.fn.refDocAuthorTagFunc(this);
+    }
+}
+class RefBookPublisherTag extends HtmlElement {
+    constructor(){
+        super();
+        //hoge
+    }
+
+    connectedCallback(){
+        referenceDocs.fn.refBookPublisherTagFunc(this);
+    }
+}
+class RefBookPublishedDateTag extends HtmlElement {
+    constructor(){
+        super();
+        //hoge
+    }
+
+    connectedCallback(){
+        referenceDocs.fn.refBookPublishedDateTagFunc(this);
+    }
+}
+class RefBookPagesTag extends HtmlElement {
+    constructor(){
+        super();
+        //hoge
+    }
+
+    connectedCallback(){
+        referenceDocs.fn.refBookPagesTagFunc(this);
+    }
+}
+class RefWebLinkTag extends HtmlElement {
+    constructor(){
+        super();
+        //hoge
+    }
+
+    connectedCallback(){
+        referenceDocs.fn.refWebLinkTagFunc(this);
+    }
+}
+class RefWebVisitedDateTag extends HtmlElement {
+    constructor(){
+        super();
+        //hoge
+    }
+
+    connectedCallback(){
+        referenceDocs.fn.refWebVisitedDateTagFunc(this);
+    }
+}
+
 let referenceDocs = (function () {
     'use strict';
 
     let fn = {
+        // custom tags actions
+        refDocTagFunc(){
+
+        },
+        refDocIdTagFunc(){
+
+        },
+        refDocNameTagFunc(){
+
+        },
+        refDocAuthorTagFunc(){
+
+        },
+        refBookPublisherTagFunc(){
+
+        },
+        refBookPublishedDateTagFunc(){
+
+        },
+        refBookPagesTagFunc(){
+
+        },
+        refWebLinkTagFunc(){
+
+        },
+        refWebVisitedDateTagFunc(){
+
+        },
 
     };
 
