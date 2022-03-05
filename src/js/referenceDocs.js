@@ -255,7 +255,9 @@ let referenceDocs = (function () {
     let fn = {
 
         init(){
-            //変数の初期化とかあれば
+            val._refCnt = 0;
+            val._docInfoList = [];
+            val._referenceList = [];
         },
 
         define(){
