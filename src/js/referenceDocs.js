@@ -29,7 +29,15 @@
 class RefDocTag extends HtmlElement {
     constructor(){
         super();
-        //hoge
+        let shadow = this.attachShadow({mode: 'open'});
+        let styleEle = document.createElement('style');
+        styleEle.textContent = `
+            <!-- no style defined -->
+        `;
+        const slotEle = document.createElement('slot');
+
+        shadow.appendChild(styleEle);
+        shadow.appendChild(slotEle);
     }
 
     connectedCallback(){
@@ -121,6 +129,22 @@ let referenceDocs = (function () {
     'use strict';
 
     let fn = {
+
+        init(){
+            //変数の初期化とかあれば
+        },
+
+        define(){
+            customElements.define('ref-doc', RefDocTag);
+            customElements.define('ref-doc-id', RefDocIdTag);
+            customElements.define('ref-doc-name', RefDocNameTag);
+            customElements.define('ref-doc-author', RefDocAuthorTag);
+            customElements.define('ref-book-publisher', RefBookPublisherTag);
+            customElements.define('ref-book-published-date', RefBookPublishedDateTag);
+            customElements.define('ref-web-link', RefWebLinkTag);
+            customElements.define('ref-web-visited-date', RefWebVisitedDateTag);
+        },
+
         // custom tags actions
         refDocTagFunc(){
 
@@ -156,3 +180,8 @@ let referenceDocs = (function () {
     	fn: fn
     };
 }());
+
+window.addEventListener('DOMContentLoaded', function(){
+    referenceDocs.fn.init();
+    referenceDocs.fn.define();
+});
