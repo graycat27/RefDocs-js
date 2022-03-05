@@ -7,15 +7,14 @@
  * This provide reference documents list for your HTML document.
  *
  * usage
- * <p>it says "quoted document"<ref-doc doc-id="uniqueId"></ref-doc>.
+ * <p>it says "quoted document"<ref-doc doc-id="bookSource" doc-pages="p.27"></ref-doc>.
  * Also the other one says "document quoted"<ref-doc doc-id="webSource"></ref-doc>.</p>
  * <ref-doc>
- *    <ref-doc-id>uniqueId</ref-doc-id>
+ *    <ref-doc-id>bookSource</ref-doc-id>
  *    <ref-doc-name>document name</ref-doc-name>
  *    <ref-doc-author>who write it</ref-doc-author>
  *    <ref-book-publisher>published by</ref-book-publisher>
  *    <ref-book-published-date>2022/03/02</ref-book-published-date>
- *    <ref-book-pages>p.27</ref-book-pages>
  * </ref-doc>
  * <ref-doc>
  *    <ref-doc-id>webSource</ref-doc-id>
