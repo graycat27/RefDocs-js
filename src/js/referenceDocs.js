@@ -140,6 +140,7 @@ let referenceDocs = (function () {
         },
         emptyRefInfo(){
             return {
+                refNo: null,
                 docId: null,
                 docPages: null
             }
@@ -213,7 +214,42 @@ let referenceDocs = (function () {
                 return null;
             }
         },
-
+        /** 参照箇所のマーキングに使うID */
+        _idPrefix(){
+            return 'refDoc-refId-';
+        },
+        _refCnt = 0,
+        _referenceList = [],
+        addReference(docId, pages){
+            let ref = val.emptyRefInfo();
+            ref.refNo = _refCnt;
+            ref.docId = docId;
+            ref.docPages = pages;
+            _referenceList.push(ref);
+            _refCnt += 1;
+        },
+        getReference(docId){
+            let references = [];
+            _referenceList.forEach((reference)=>{
+                if(reference.docId == docId){}
+                    let ref = val.emptyRefInfo();
+                    ref.docId = reference.docId;
+                    ref.docPages = reference.docPages;
+                    references.push(ref);
+                }
+            });
+            return references;
+        },
+        getAllReference(){
+            let references = [];
+            _referenceList.forEach((reference)=>{
+                let ref = val.emptyRefInfo();
+                ref.docId = reference.docId;
+                ref.docPages = reference.docPages;
+                references.push(ref);
+            });
+            return references;
+        }
     };
 
     let fn = {
