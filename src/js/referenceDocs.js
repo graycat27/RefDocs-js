@@ -303,6 +303,7 @@ let referenceDocs = (function () {
     };
 
     return {
+        val: val,
     	fn: fn
     };
 }());
