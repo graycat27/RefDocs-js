@@ -209,7 +209,6 @@ let referenceDocs = (function () {
                     docAuthor: docInfo.docAuthor,
                     docPublisher: docInfo.docPublisher,
                     docPubDate: docInfo.docPubDate,
-                    docPages: docInfo.docPages,
                     docLink: docInfo.docLink,
                     docVisitedDate: docInfo.docVisitedDate
                 }
