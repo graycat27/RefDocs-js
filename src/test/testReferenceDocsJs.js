@@ -307,6 +307,7 @@ function testCase12(){
 }
 
 function testCase13(){
+    console.log('test #13');
     const ref13_0 = referenceDocs.val.getReference('id1');
     const as13_0 = assert([{
         refNo: 0,
@@ -326,6 +327,7 @@ function testCase13(){
 }
 
 function testCase14(){
+    console.log('test #14');
     referenceDocs.fn.init();
     referenceDocs.val.addReference('id1', 'p.1');
     referenceDocs.val.addReference('id2', 'p.1');
