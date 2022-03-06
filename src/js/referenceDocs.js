@@ -163,6 +163,9 @@ let referenceDocs = (function () {
                 docInfo = getInfo(refId)
             }
 
+            if(docInfo.docId == null){
+                docInfo.docId = refId;
+            }
             if(docInfo.docName == null){
                 docInfo.docName = docName;
             }

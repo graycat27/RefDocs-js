@@ -148,6 +148,31 @@ function assert(actual, expected) {
             </script>
             </td>
         </tr>
+        <tr>
+            <th scope="row">4</th><td>add doc object</td><td>
+            <span id="test4result"></span>
+            <script>
+                console.log('test #4');
+                referenceDocs.val.addInfo('id1', 'name1', 'author1', 'pub1', 'date1', null, null);
+                const ref4_0 = referenceDocs.val._docInfoList[0];
+                let as4 = assert({
+                    docId: 'id1',
+                    docName: 'name1',
+                    docAuthor: 'author1',
+                    docPublisher: 'pub1',
+                    docPubDate: 'date1',
+                    docLink: null,
+                    docVisitedDate: null
+                }, ref4_0);
+                if(as4){
+                    document.getElementById('test4result').innerHTML = 'success';
+                }else{
+                    document.getElementById('test4result').innerHTML = 'failed';
+                    document.getElementById('test4result').style.color = 'red';
+                }
+            </script>
+        </td>
+        </tr>
     </tbody>
 </table>
 
