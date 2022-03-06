@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Test Reference Docs</title>
     <script src="../js/referenceDocs.js"></script>
+
+    <style>
+    table{
+        border: 1px solid black;
+    }
+    th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    </style>
 </head>
 <body>
 <h1>ReferenceDocs-JSのテストページ</h1>
@@ -27,7 +37,6 @@
 
 <script>
 function assert(actual, expected) {
-  console.log('assertion for: '+ actual);
   let result = (actual === expected);
   if(Array.isArray(actual) && Array.isArray(expected)){
     if(actual.length == expected.length){
@@ -53,19 +62,18 @@ function assert(actual, expected) {
       }else{
         for (var i = 0; i < actProps.length; i++) {
           const propName = actProps[i];
-        if (actual[propName] !== expected[propName]) {
-          result = false;
+          if (actual[propName] !== expected[propName]) {
+            result = false;
+          }
         }
       }
     }
   }
-
-  }
   if(result){
-    console.log('> success');
+    console.log('> assertion success');
     return true;
   }else{
-    console.error('> failed');
+    console.error('> assertion failed');
     console.dir(actual);
     console.dir(expected);
     return false;
@@ -73,15 +81,7 @@ function assert(actual, expected) {
 }
 
 </script>
-<style>
-    table{
-        border: 1px solid black;
-    }
-    th, td{
-        border: 1px solid black;
-        border-collapse: collapse;
-    }
-</style>
+
 <table>
     <caption>テストケース</caption>
     <thead>
