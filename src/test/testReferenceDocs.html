@@ -65,7 +65,9 @@ function assert(actual, expected) {
     console.log('> success');
     return true;
   }else{
-    console.error('> failed' + '\nActual: ' + actual + '\nExpected: ' + expected);
+    console.error('> failed');
+    console.dir(actual);
+    console.dir(expected);
     return false;
   }
 }
