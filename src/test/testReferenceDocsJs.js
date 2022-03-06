@@ -32,17 +32,19 @@ function assert(expected, actual) {
 
 function assertObjectEquals(obj1, obj2){
   let result = false;
-  if(typeof(actual) === typeof(expected)){
-    const actProps = [] || Object.getOwnPropertyNames(actual);
-    const expProps = [] || Object.getOwnPropertyNames(expected);
+  if(typeof(obj1) === typeof(obj2)){
+    const actProps = (obj1)? Object.getOwnPropertyNames(obj1) : [];
+    const expProps = (obj2)? Object.getOwnPropertyNames(obj2) : [];
 
     result = true;
     if (actProps.length !== expProps.length) {
       result = false;
+    }else if(actProps.length == 0){
+      result = (obj1 === obj2);
     }else{
       for (var i = 0; i < actProps.length; i++) {
         const propName = actProps[i];
-        if (actual[propName] !== expected[propName]) {
+        if (obj1[propName] !== obj2[propName]) {
           result = false;
        }
       }
