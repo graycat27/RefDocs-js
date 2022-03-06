@@ -235,6 +235,7 @@ let referenceDocs = (function () {
             val._referenceList.forEach((reference)=>{
                 if(reference.docId == docId){}
                     let ref = val.emptyRefInfo();
+                    ref.refNo = reference.refNo;
                     ref.docId = reference.docId;
                     ref.docPages = reference.docPages;
                     references.push(ref);
@@ -246,6 +247,7 @@ let referenceDocs = (function () {
             let references = [];
             val._referenceList.forEach((reference)=>{
                 let ref = val.emptyRefInfo();
+                ref.refNo = reference.refNo;
                 ref.docId = reference.docId;
                 ref.docPages = reference.docPages;
                 references.push(ref);
