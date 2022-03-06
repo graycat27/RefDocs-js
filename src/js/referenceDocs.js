@@ -205,12 +205,14 @@ let referenceDocs = (function () {
         _refCnt: 0,
         _referenceList: [],
         addReference(docId, pages){
-            let ref = val.emptyRefInfo();
-            ref.refNo = val._refCnt;
-            ref.docId = docId;
-            ref.docPages = pages;
-            val._referenceList.push(ref);
-            val._refCnt += 1;
+            if(!(docId == null || docId == '') && !(pages == null || pages == '')){
+                let ref = val.emptyRefInfo();
+                ref.refNo = val._refCnt;
+                ref.docId = docId;
+                ref.docPages = pages;
+                val._referenceList.push(ref);
+                val._refCnt += 1;
+            }
         },
         getReference(docId){
             let references = [];

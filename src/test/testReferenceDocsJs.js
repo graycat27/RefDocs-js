@@ -348,3 +348,18 @@ function testCase14(){
         document.getElementById('test14result').style.color = 'red';
     }
 }
+
+function testCase15(){
+    console.log('test #15');
+    referenceDocs.fn.init();
+    referenceDocs.val.addReference('id1', null);
+    referenceDocs.val.addReference(null, 'p.1');
+    const ref15_0 = referenceDocs.val.getAllReference();
+    const as15_0 = assert([], ref15_0);
+    if(as15_0){
+        document.getElementById('test15result').innerHTML = 'success';
+    }else{
+        document.getElementById('test15result').innerHTML = 'failed';
+        document.getElementById('test15result').style.color = 'red';
+    }
+}
