@@ -26,6 +26,10 @@
  * <ref-doc-list></ref-doc-list>
  */
 class RefDocTag extends HTMLElement {
+    tagName(){
+        return 'ref-doc';
+    }
+
     constructor(){
         super();
         //hoge
@@ -36,6 +40,10 @@ class RefDocTag extends HTMLElement {
     }
 }
 class RefDocIdTag extends HTMLElement {
+    tagName(){
+        return 'ref-doc-id';
+    }
+
     constructor(){
         super();
         //hoge
@@ -46,6 +54,10 @@ class RefDocIdTag extends HTMLElement {
     }
 }
 class RefDocNameTag extends HTMLElement {
+    tagName(){
+        return 'ref-doc-name';
+    }
+
     constructor(){
         super();
         //hoge
@@ -56,6 +68,10 @@ class RefDocNameTag extends HTMLElement {
     }
 }
 class RefDocAuthorTag extends HTMLElement {
+    tagName(){
+        return 'ref-doc-author';
+    }
+
     constructor(){
         super();
         //hoge
@@ -66,6 +82,10 @@ class RefDocAuthorTag extends HTMLElement {
     }
 }
 class RefBookPublisherTag extends HTMLElement {
+    tagName(){
+        return 'ref-book-publisher';
+    }
+
     constructor(){
         super();
         //hoge
@@ -76,6 +96,10 @@ class RefBookPublisherTag extends HTMLElement {
     }
 }
 class RefBookPublishedDateTag extends HTMLElement {
+    tagName(){
+        return 'ref-book-published-date';
+    }
+
     constructor(){
         super();
         //hoge
@@ -86,6 +110,10 @@ class RefBookPublishedDateTag extends HTMLElement {
     }
 }
 class RefWebLinkTag extends HTMLElement {
+    tagName(){
+        return 'ref-web-link';
+    }
+
     constructor(){
         super();
         //hoge
@@ -96,6 +124,10 @@ class RefWebLinkTag extends HTMLElement {
     }
 }
 class RefWebVisitedDateTag extends HTMLElement {
+    tagName(){
+        return 'ref-web-visited-date';
+    }
+
     constructor(){
         super();
         //hoge
@@ -249,14 +281,14 @@ let referenceDocs = (function () {
         },
 
         define(){
-            customElements.define('ref-doc', RefDocTag);
-            customElements.define('ref-doc-id', RefDocIdTag);
-            customElements.define('ref-doc-name', RefDocNameTag);
-            customElements.define('ref-doc-author', RefDocAuthorTag);
-            customElements.define('ref-book-publisher', RefBookPublisherTag);
-            customElements.define('ref-book-published-date', RefBookPublishedDateTag);
-            customElements.define('ref-web-link', RefWebLinkTag);
-            customElements.define('ref-web-visited-date', RefWebVisitedDateTag);
+            customElements.define(RefDocTag.prototype.tagName(), RefDocTag);
+            customElements.define(RefDocIdTag.prototype.tagName(), RefDocIdTag);
+            customElements.define(RefDocNameTag.prototype.tagName(), RefDocNameTag);
+            customElements.define(RefDocAuthorTag.prototype.tagName(), RefDocAuthorTag);
+            customElements.define(RefBookPublisherTag.prototype.tagName(), RefBookPublisherTag);
+            customElements.define(RefBookPublishedDateTag.prototype.tagName(), RefBookPublishedDateTag);
+            customElements.define(RefWebLinkTag.prototype.tagName(), RefWebLinkTag);
+            customElements.define(RefWebVisitedDateTag.prototype.tagName(), RefWebVisitedDateTag);
         },
 
         // custom tags actions
