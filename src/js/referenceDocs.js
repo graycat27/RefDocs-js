@@ -148,7 +148,7 @@ let referenceDocs = (function () {
 
         _docInfoList: [],
         hasSameIdInfo(refId){
-            _docInfoList.forEach((info)=>{
+            val._docInfoList.forEach((info)=>{
                 if(info.docId == refId){
                     return true;
                 }
@@ -158,7 +158,7 @@ let referenceDocs = (function () {
         addInfo(refId, docName, docAuthor, docPublisher, docPubDate, docLink, docVisitedDate){
             let docInfo = val.emptyDocInfo();
 
-            const isNewInfo = !hasSameIdInfo(refId);
+            const isNewInfo = !val.hasSameIdInfo(refId);
             if(!isNewInfo){
                 docInfo = getInfo(refId)
             }
@@ -183,14 +183,14 @@ let referenceDocs = (function () {
             }
 
             if(isNewInfo){
-                _docInfoList.push(docInfo);
+                val._docInfoList.push(docInfo);
             }else{
-                const infoIdx = _getInfoIndex(docInfo.docId);
-                _docInfoList[infoIdx] = docInfo;
+                const infoIdx = val._getInfoIndex(docInfo.docId);
+                val._docInfoList[infoIdx] = docInfo;
             }
         },
         _getInfoIndex(refId){
-            const docIdx = _docInfoList.findIndex((info)=>(info.docId == refId));
+            const docIdx = val._docInfoList.findIndex((info)=>(info.docId == refId));
             if(docIdx < 0){
                 return null;
             }else{
@@ -199,7 +199,7 @@ let referenceDocs = (function () {
         },
         getInfo(refId){
             if(hasSameIdInfo(refId)){
-                const docInfo = _docInfoList.find((info)=>(info.docId == refId));
+                const docInfo = val._docInfoList.find((info)=>(info.docId == refId));
                 return {
                     docId: docInfo.docId,
                     docName: docInfo.docName,
@@ -225,12 +225,12 @@ let referenceDocs = (function () {
             ref.refNo = _refCnt;
             ref.docId = docId;
             ref.docPages = pages;
-            _referenceList.push(ref);
-            _refCnt += 1;
+            val._referenceList.push(ref);
+            val._refCnt += 1;
         },
         getReference(docId){
             let references = [];
-            _referenceList.forEach((reference)=>{
+            val._referenceList.forEach((reference)=>{
                 if(reference.docId == docId){}
                     let ref = val.emptyRefInfo();
                     ref.docId = reference.docId;
@@ -242,7 +242,7 @@ let referenceDocs = (function () {
         },
         getAllReference(){
             let references = [];
-            _referenceList.forEach((reference)=>{
+            val._referenceList.forEach((reference)=>{
                 let ref = val.emptyRefInfo();
                 ref.docId = reference.docId;
                 ref.docPages = reference.docPages;
