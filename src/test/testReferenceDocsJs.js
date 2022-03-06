@@ -1,4 +1,4 @@
-function assert(actual, expected) {
+function assert(expected, actual) {
   let result = (actual === expected);
   if(Array.isArray(actual) && Array.isArray(expected)){
     if(actual.length == expected.length){
@@ -36,8 +36,11 @@ function assert(actual, expected) {
     return true;
   }else{
     console.error('> assertion failed');
-    console.dir(actual);
+    console.log('expected:');
     console.dir(expected);
+    console.log('actual:');
+    console.dir(actual);
+
     return false;
   }
 }
