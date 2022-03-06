@@ -253,6 +253,89 @@ function assert(actual, expected) {
             </script>
             </td>
         </tr>
+        <tr>
+            <th scope="row">8</th><td>add different doc info</td><td>
+            <span id="test8result"></span>
+            <script>
+                console.log('test #8');
+                referenceDocs.fn.init();
+                referenceDocs.val.addInfo('id1', 'name1', 'author1', 'pub1', 'pubDate1', 'adr1', 'visDate1');
+                referenceDocs.val.addInfo('id2', 'name2', 'author2', 'pub2', 'pubDate2', 'adr2', 'visDate2');
+                const ref8_0 = referenceDocs.val._docInfoList[0];
+                const ref8_1 = referenceDocs.val._docInfoList[1];
+                let as8_0 = assert({
+                    docId: 'id1',
+                    docName: 'name1',
+                    docAuthor: 'author1',
+                    docPublisher: 'pub1',
+                    docPubDate: 'pubDate1',
+                    docLink: 'adr1',
+                    docVisitedDate: 'visDate1'
+                }, ref8_0);
+                let as8_1 = assert({
+                    docId: 'id2',
+                    docName: 'name2',
+                    docAuthor: 'author2',
+                    docPublisher: 'pub2',
+                    docPubDate: 'pubDate2',
+                    docLink: 'adr2',
+                    docVisitedDate: 'visDate2'
+                }, ref8_1);
+                if(as8_0 && as8_1){
+                    document.getElementById('test8result').innerHTML = 'success';
+                }else{
+                    document.getElementById('test8result').innerHTML = 'failed';
+                    document.getElementById('test8result').style.color = 'red';
+                }
+            </script>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">9</th><td>get doc info index</td><td>
+            <span id="test9result"></span>
+            <script>
+                console.log('test #9');
+                const ref9_0 = referenceDocs.val._getInfoIndex('id1');
+                const ref9_1 = referenceDocs.val._getInfoIndex('id2');
+                const ref9_2 = referenceDocs.val._getInfoIndex('id3');
+                let as9_0 = assert(0, ref9_0);
+                let as9_1 = assert(1, ref9_1);
+                let as9_2 = assert(null, ref9_2);
+                if(as9_0 && as9_1 && as9_2){
+                    document.getElementById('test9result').innerHTML = 'success';
+                }else{
+                    document.getElementById('test9result').innerHTML = 'failed';
+                    document.getElementById('test9result').style.color = 'red';
+                }
+            </script>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">10</th><td>get doc info</td><td>
+            <span id="test10result"></span>
+            <script>
+                console.log('test #10');
+                const ref10_0 = referenceDocs.val.getDocInfo('id2');
+                const ref10_1 = referenceDocs.val.getDocInfo('id3');
+                const as10_0 = assert({
+                    docId: 'id2',
+                    docName: 'name2',
+                    docAuthor: 'author2',
+                    docPublisher: 'pub2',
+                    docPubDate: 'pubDate2',
+                    docLink: 'adr2',
+                    docVisitedDate: 'visDate2'
+                }, ref10_0);
+                const as10_1 = assert(null, ref10_1);
+                if(as10_0 && as10_1){
+                    document.getElementById('test10result').innerHTML = 'success';
+                }else{
+                    document.getElementById('test10result').innerHTML = 'failed';
+                    document.getElementById('test10result').style.color = 'red';
+                }
+            </script>
+            </td>
+        </tr>
     </tbody>
 </table>
 
