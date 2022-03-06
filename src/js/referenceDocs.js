@@ -205,7 +205,7 @@ let referenceDocs = (function () {
         _refCnt: 0,
         _referenceList: [],
         addReference(docId, pages){
-            if(!(docId == null || docId == '') && !(pages == null || pages == '')){
+            if(!(docId == null || docId == '')){
                 let ref = val.emptyRefInfo();
                 ref.refNo = val._refCnt;
                 ref.docId = docId;

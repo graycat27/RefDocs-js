@@ -355,7 +355,11 @@ function testCase15(){
     referenceDocs.val.addReference('id1', null);
     referenceDocs.val.addReference(null, 'p.1');
     const ref15_0 = referenceDocs.val.getAllReference();
-    const as15_0 = assert([], ref15_0);
+    const as15_0 = assert([{
+        refId: 0,
+        docId: 'id1',
+        docPages: null
+    }], ref15_0);
     if(as15_0){
         document.getElementById('test15result').innerHTML = 'success';
     }else{
