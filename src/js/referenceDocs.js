@@ -200,7 +200,9 @@ let referenceDocs = (function () {
             }
 
             if(isNewInfo){
-                val._docInfoList.push(docInfo);
+                if(docInfo.docId != null){
+                    val._docInfoList.push(docInfo);
+                }
             }else{
                 const infoIdx = val._getInfoIndex(docInfo.docId);
                 val._docInfoList[infoIdx] = docInfo;

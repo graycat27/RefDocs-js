@@ -103,6 +103,7 @@ function testCase3(){
 
 function testCase4(){
     console.log('test #4');
+    referenceDocs.fn.init();
     referenceDocs.val.addInfo('id1', 'name1', 'author1', 'pub1', 'date1', null, null);
     const ref4_0 = referenceDocs.val._docInfoList[0];
     let as4 = assert({
@@ -119,6 +120,20 @@ function testCase4(){
     }else{
         document.getElementById('test4result').innerHTML = 'failed';
         document.getElementById('test4result').style.color = 'red';
+    }
+}
+
+function testCase4_1(){
+    console.log('test #4_1');
+    referenceDocs.fn.init();
+    referenceDocs.val.addInfo(null, 'name1', 'author1', 'pub1', 'date1', null, null);
+    const ref4_1_0 = referenceDocs.val._docInfoList.length;
+    let as4 = assert(0, ref4_1_0);
+    if(as4){
+        document.getElementById('test4_1result').innerHTML = 'success';
+    }else{
+        document.getElementById('test4_1result').innerHTML = 'failed';
+        document.getElementById('test4_1result').style.color = 'red';
     }
 }
 
