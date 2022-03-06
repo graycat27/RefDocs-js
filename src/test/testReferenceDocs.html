@@ -171,7 +171,87 @@ function assert(actual, expected) {
                     document.getElementById('test4result').style.color = 'red';
                 }
             </script>
-        </td>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">5</th><td>add doc object - web article</td><td>
+            <span id="test5result"></span>
+            <script>
+                console.log('test #5');
+                referenceDocs.fn.init();
+                referenceDocs.val.addInfo('id1', 'name1', 'author1', null, null, 'adr1', 'visDate1');
+                const ref5_0 = referenceDocs.val._docInfoList[0];
+                let as5 = assert({
+                    docId: 'id1',
+                    docName: 'name1',
+                    docAuthor: 'author1',
+                    docPublisher: null,
+                    docPubDate: null,
+                    docLink: 'adr1',
+                    docVisitedDate: 'visDate1'
+                }, ref5_0);
+                if(as5){
+                    document.getElementById('test5result').innerHTML = 'success';
+                }else{
+                    document.getElementById('test5result').innerHTML = 'failed';
+                    document.getElementById('test5result').style.color = 'red';
+                }
+            </script>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">6</th><td>do not override info</td><td>
+            <span id="test6result"></span>
+            <script>
+                console.log('test #6');
+                referenceDocs.fn.init();
+                referenceDocs.val.addInfo('id1', 'name1', 'author1', 'pub1', 'pubDate1', 'adr1', 'visDate1');
+                referenceDocs.val.addInfo('id1', '1eman', '1rohtua', '1bup', '1etaDbup', '1rda', '1etaDsiv');
+                const ref6_0 = referenceDocs.val._docInfoList[0];
+                let as6 = assert({
+                    docId: 'id1',
+                    docName: 'name1',
+                    docAuthor: 'author1',
+                    docPublisher: 'pub1',
+                    docPubDate: 'pubDate1',
+                    docLink: 'adr1',
+                    docVisitedDate: 'visDate1'
+                }, ref6_0);
+                if(as6){
+                    document.getElementById('test6result').innerHTML = 'success';
+                }else{
+                    document.getElementById('test6result').innerHTML = 'failed';
+                    document.getElementById('test6result').style.color = 'red';
+                }
+            </script>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">7</th><td>override null info</td><td>
+            <span id="test7result"></span>
+            <script>
+                console.log('test #7');
+                referenceDocs.fn.init();
+                referenceDocs.val.addInfo('id1', null, null, null, null, null, null);
+                referenceDocs.val.addInfo('id1', '1eman', '1rohtua', '1bup', '1etaDbup', '1rda', '1etaDsiv');
+                const ref7_0 = referenceDocs.val._docInfoList[0];
+                let as7 = assert({
+                    docId: 'id1',
+                    docName: '1eman',
+                    docAuthor: '1rohtua',
+                    docPublisher: '1bup',
+                    docPubDate: '1etaDbup',
+                    docLink: '1rda',
+                    docVisitedDate: '1etaDsiv'
+                }, ref7_0);
+                if(as7){
+                    document.getElementById('test7result').innerHTML = 'success';
+                }else{
+                    document.getElementById('test7result').innerHTML = 'failed';
+                    document.getElementById('test7result').style.color = 'red';
+                }
+            </script>
+            </td>
         </tr>
     </tbody>
 </table>

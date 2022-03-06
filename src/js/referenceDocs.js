@@ -148,11 +148,11 @@ let referenceDocs = (function () {
 
         _docInfoList: [],
         hasSameIdInfo(refId){
-            val._docInfoList.forEach((info)=>{
-                if(info.docId == refId){
+            for(let i=0; i<val._docInfoList.length; i++){
+                if(val._docInfoList[i].docId === refId){
                     return true;
                 }
-            });
+            }
             return false;
         },
         addInfo(refId, docName, docAuthor, docPublisher, docPubDate, docLink, docVisitedDate){
