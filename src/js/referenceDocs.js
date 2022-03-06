@@ -28,15 +28,7 @@
 class RefDocTag extends HTMLElement {
     constructor(){
         super();
-        let shadow = this.attachShadow({mode: 'open'});
-        let styleEle = document.createElement('style');
-        styleEle.textContent = `
-            <!-- no style defined -->
-        `;
-        const slotEle = document.createElement('slot');
-
-        shadow.appendChild(styleEle);
-        shadow.appendChild(slotEle);
+        //hoge
     }
 
     connectedCallback(){
