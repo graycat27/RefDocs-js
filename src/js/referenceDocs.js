@@ -25,7 +25,7 @@
   * </ref-doc>
  * <ref-doc-list></ref-doc-list>
  */
-class RefDocTag extends HtmlElement {
+class RefDocTag extends HTMLElement {
     constructor(){
         super();
         let shadow = this.attachShadow({mode: 'open'});
@@ -43,7 +43,7 @@ class RefDocTag extends HtmlElement {
         referenceDocs.fn.refDocTagFunc(this);
     }
 }
-class RefDocIdTag extends HtmlElement {
+class RefDocIdTag extends HTMLElement {
     constructor(){
         super();
         //hoge
@@ -53,7 +53,7 @@ class RefDocIdTag extends HtmlElement {
         referenceDocs.fn.refDocIdTagFunc(this);
     }
 }
-class RefDocNameTag extends HtmlElement {
+class RefDocNameTag extends HTMLElement {
     constructor(){
         super();
         //hoge
@@ -63,7 +63,7 @@ class RefDocNameTag extends HtmlElement {
         referenceDocs.fn.refDocNameTagFunc(this);
     }
 }
-class RefDocAuthorTag extends HtmlElement {
+class RefDocAuthorTag extends HTMLElement {
     constructor(){
         super();
         //hoge
@@ -73,7 +73,7 @@ class RefDocAuthorTag extends HtmlElement {
         referenceDocs.fn.refDocAuthorTagFunc(this);
     }
 }
-class RefBookPublisherTag extends HtmlElement {
+class RefBookPublisherTag extends HTMLElement {
     constructor(){
         super();
         //hoge
@@ -83,7 +83,7 @@ class RefBookPublisherTag extends HtmlElement {
         referenceDocs.fn.refBookPublisherTagFunc(this);
     }
 }
-class RefBookPublishedDateTag extends HtmlElement {
+class RefBookPublishedDateTag extends HTMLElement {
     constructor(){
         super();
         //hoge
@@ -93,7 +93,7 @@ class RefBookPublishedDateTag extends HtmlElement {
         referenceDocs.fn.refBookPublishedDateTagFunc(this);
     }
 }
-class RefBookPagesTag extends HtmlElement {
+class RefBookPagesTag extends HTMLElement {
     constructor(){
         super();
         //hoge
@@ -103,7 +103,7 @@ class RefBookPagesTag extends HtmlElement {
         referenceDocs.fn.refBookPagesTagFunc(this);
     }
 }
-class RefWebLinkTag extends HtmlElement {
+class RefWebLinkTag extends HTMLElement {
     constructor(){
         super();
         //hoge
@@ -113,7 +113,7 @@ class RefWebLinkTag extends HtmlElement {
         referenceDocs.fn.refWebLinkTagFunc(this);
     }
 }
-class RefWebVisitedDateTag extends HtmlElement {
+class RefWebVisitedDateTag extends HTMLElement {
     constructor(){
         super();
         //hoge
