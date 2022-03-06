@@ -224,7 +224,7 @@ let referenceDocs = (function () {
         _referenceList: [],
         addReference(docId, pages){
             let ref = val.emptyRefInfo();
-            ref.refNo = _refCnt;
+            ref.refNo = val._refCnt;
             ref.docId = docId;
             ref.docPages = pages;
             val._referenceList.push(ref);
