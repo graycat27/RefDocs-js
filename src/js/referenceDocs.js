@@ -85,16 +85,6 @@ class RefBookPublishedDateTag extends HTMLElement {
         referenceDocs.fn.refBookPublishedDateTagFunc(this);
     }
 }
-class RefBookPagesTag extends HTMLElement {
-    constructor(){
-        super();
-        //hoge
-    }
-
-    connectedCallback(){
-        referenceDocs.fn.refBookPagesTagFunc(this);
-    }
-}
 class RefWebLinkTag extends HTMLElement {
     constructor(){
         super();
@@ -284,9 +274,6 @@ let referenceDocs = (function () {
 
         },
         refBookPublishedDateTagFunc(){
-
-        },
-        refBookPagesTagFunc(){
 
         },
         refWebLinkTagFunc(){
