@@ -294,7 +294,69 @@ let referenceDocs = (function () {
         },
 
         // custom tags actions
-        refDocTagFunc(){
+        refDocTagFunc(thisElement){
+            //pattern
+            //a. inserted on mark position
+            //b. inserted as document info
+            //c. both. As mark position and also have document info
+
+            //a. attribute doc-id and doc-pages when its a book
+            //   or only doc-id when its a website
+            //   Then, add doc info and ref info
+            //   Insert element that links to the list.
+
+            //b. no attribute doc-id.
+            //   Then, add doc info.
+
+            //c. do as a.
+
+            const attrDocId = (thisElement.hasAttribute('doc-id')) ? thisElement.getAttribute('doc-id') : null;
+            const attrDocPages = (thisElement.hasAttribute('doc-pages')) ? thisElement.getAttribute('doc-pages') : null;
+
+            let childrenNodes = thisElement.childNodes;
+            let docInfo = val.emptyDocInfo();
+            docInfo.docId = attrDocId;
+            childrenNodes.forEach((node)=>{
+                const nodeName = node.nodeName.toUpperCase();
+                if(RefDocIdTag.prototype.tagName().toUpperCase() === nodeName){
+                    docInfo.docId = attrDocId || node.textContent;  //attr or tagVal
+                    return;
+                }
+                if(RefDocNameTag.prototype.tagName().toUpperCase() === nodeName){
+                    docInfo.docName = node.textContent;
+                    return;
+                }
+                if(RefDocAuthorTag.prototype.tagName().toUpperCase() === nodeName){
+                    docInfo.docAuthor = node.textContent;
+                    return;
+                }
+                if(RefBookPublisherTag.prototype.tagName().toUpperCase() === nodeName){
+                    docInfo.docPublisher = node.textContent;
+                    return;
+                }
+                if(RefBookPublishedDateTag.prototype.tagName().toUpperCase() === nodeName){
+                    docInfo.docPublishedDate = node.textContent;
+                    return;
+                }
+                if(RefWebLinkTag.prototype.tagName().toUpperCase() === nodeName){
+                    docInfo.docLink = node.textContent;
+                    return;
+                }
+                if(RefWebVisitedDateTag.prototype.tagName().toUpperCase() === nodeName){
+                    docInfo.docVisitedDate = node.textContent;
+                    return;
+                }
+            });
+
+            console.dir(docInfo);
+            let refInfo = val.emptyRefInfo();
+            refInfo.docId = attrDocId;
+            refInfo.docPages = attrDocPages;
+            console.dir(refInfo);
+
+            val.addInfo(docInfo.docId, docInfo.docName, docInfo.docAuthor,
+                docInfo.docPublisher, docInfo.docPubDate, docInfo.docLink, docInfo.docVisitedDate);
+            val.addReference(refInfo.docId, refInfo.docPages);
 
         },
         refDocIdTagFunc(){
