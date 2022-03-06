@@ -53,11 +53,11 @@ function assert(actual, expected) {
     }
   }else{
     if(typeof(actual) === typeof(expected)){
-      const actProps = Object.getOwnPropertyNames(actual);
-      const expProps = Object.getOwnPropertyNames(expected);
+      const actProps = [] || Object.getOwnPropertyNames(actual);
+      const expProps = [] || Object.getOwnPropertyNames(expected);
 
       result = true;
-      if (actProps.length != expProps.length) {
+      if (actProps.length !== expProps.length) {
         result = false;
       }else{
         for (var i = 0; i < actProps.length; i++) {
