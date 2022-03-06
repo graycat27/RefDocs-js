@@ -160,7 +160,7 @@ let referenceDocs = (function () {
 
             const isNewInfo = !val.hasSameIdInfo(refId);
             if(!isNewInfo){
-                docInfo = getInfo(refId)
+                docInfo = val.getInfo(refId)
             }
 
             if(docInfo.docId == null){
@@ -201,7 +201,7 @@ let referenceDocs = (function () {
             }
         },
         getInfo(refId){
-            if(hasSameIdInfo(refId)){
+            if(val.hasSameIdInfo(refId)){
                 const docInfo = val._docInfoList.find((info)=>(info.docId == refId));
                 return {
                     docId: docInfo.docId,
