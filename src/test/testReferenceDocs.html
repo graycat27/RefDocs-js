@@ -104,8 +104,48 @@ function assert(actual, expected) {
             </script>
             </td>
         </tr>
-
-
+        <tr>
+            <th scope="row">2</th><td>get empty doc object</td><td>
+            <span id="test2result"></span>
+            <script>
+                console.log('test #2');
+                let as2 = assert({
+                    docId: null,
+                    docName: null,
+                    docAuthor: null,
+                    docPublisher: null,
+                    docPubDate: null,
+                    docLink: null,
+                    docVisitedDate: null
+                }, referenceDocs.val.emptyDocInfo());
+                if(as2){
+                    document.getElementById('test2result').innerHTML = 'success';
+                }else{
+                    document.getElementById('test2result').innerHTML = 'failed';
+                    document.getElementById('test2result').style.color = 'red';
+                }
+            </script>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th><td>get empty ref object</td><td>
+            <span id="test3result"></span>
+            <script>
+                console.log('test #3');
+                let as3 = assert({
+                    refNo: null,
+                    docId: null,
+                    docPages: null
+                }, referenceDocs.val.emptyRefInfo());
+                if(as3){
+                    document.getElementById('test3result').innerHTML = 'success';
+                }else{
+                    document.getElementById('test3result').innerHTML = 'failed';
+                    document.getElementById('test3result').style.color = 'red';
+                }
+            </script>
+            </td>
+        </tr>
     </tbody>
 </table>
 
