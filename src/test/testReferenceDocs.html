@@ -92,10 +92,10 @@ function assert(actual, expected) {
             <script>
                 console.log('test #1');
                 referenceDocs.fn.init();
-                let as1 = assert(0, referenceDocs.val._refCnt);
-                let as2 = assert([], referenceDocs.val._docInfoList);
-                let as3 = assert([], referenceDocs.val._referenceList);
-                if(as1 && as2 && as3){
+                let as1_1 = assert(0, referenceDocs.val._refCnt);
+                let as1_2 = assert([], referenceDocs.val._docInfoList);
+                let as1_3 = assert([], referenceDocs.val._referenceList);
+                if(as1_1 && as1_2 && as1_3){
                     document.getElementById('test1result').innerHTML = 'success';
                 }else{
                     document.getElementById('test1result').innerHTML = 'failed';
