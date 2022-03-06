@@ -4,7 +4,7 @@ function assert(expected, actual) {
     if(actual.length == expected.length){
       result = true;
       for(let ai = 0; ai < actual.length; ai++){
-        if(actual[ai] === expected[ai]){
+        if(assertObjectEquals(actual[ai], expected[ai])){
           continue;
         }
         result = false;
@@ -14,22 +14,7 @@ function assert(expected, actual) {
       result = false;
     }
   }else{
-    if(typeof(actual) === typeof(expected)){
-      const actProps = [] || Object.getOwnPropertyNames(actual);
-      const expProps = [] || Object.getOwnPropertyNames(expected);
-
-      result = true;
-      if (actProps.length !== expProps.length) {
-        result = false;
-      }else{
-        for (var i = 0; i < actProps.length; i++) {
-          const propName = actProps[i];
-          if (actual[propName] !== expected[propName]) {
-            result = false;
-          }
-        }
-      }
-    }
+    result = assertObjectEquals(expected, actual);
   }
   if(result){
     console.log('> assertion success');
@@ -43,6 +28,27 @@ function assert(expected, actual) {
 
     return false;
   }
+}
+
+function assertObjectEquals(obj1, obj2){
+  let result = false;
+  if(typeof(actual) === typeof(expected)){
+    const actProps = [] || Object.getOwnPropertyNames(actual);
+    const expProps = [] || Object.getOwnPropertyNames(expected);
+
+    result = true;
+    if (actProps.length !== expProps.length) {
+      result = false;
+    }else{
+      for (var i = 0; i < actProps.length; i++) {
+        const propName = actProps[i];
+        if (actual[propName] !== expected[propName]) {
+          result = false;
+       }
+      }
+    }
+  }
+  return result;
 }
 
 function testCase1(){
