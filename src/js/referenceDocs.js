@@ -8,7 +8,7 @@
  *
  * usage
  * <p>it says "quoted document"<ref-doc doc-id="bookSource" doc-pages="p.27"></ref-doc>.
- * Also the other one says "document quoted"<ref-doc doc-id="webSource"></ref-doc>.</p>
+ * Also, the other one says "document quoted"<ref-doc doc-id="webSource"></ref-doc>.</p>
  * <ref-doc>
  *    <ref-doc-id>bookSource</ref-doc-id>
  *    <ref-doc-name>document name</ref-doc-name>

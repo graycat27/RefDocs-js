@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Reference Docs</title>
+    <script src="../js/referenceDocs.js"></script>
+</head>
+<body>
+<h1>ReferenceDocs-JSのテストページ</h1>
+<p>it says "quoted document"<ref-doc doc-id="bookSource" doc-pages="p.27"></ref-doc>.
+    Also, the other one says "document quoted"<ref-doc doc-id="webSource"></ref-doc>.</p>
+<ref-doc>
+   <ref-doc-id>bookSource</ref-doc-id>
+   <ref-doc-name>document name</ref-doc-name>
+   <ref-doc-author>who write it</ref-doc-author>
+   <ref-book-publisher>published by</ref-book-publisher>
+   <ref-book-published-date>2022/03/02</ref-book-published-date>
+</ref-doc>
+<ref-doc>
+   <ref-doc-id>webSource</ref-doc-id>
+   <ref-doc-name>web page name</ref-doc-name>
+   <ref-doc-author>who write it</ref-doc-author>
+   <ref-web-link>https://yui-kitamura.eng.pro/hoge</ref-web-link>
+   <ref-web-visited-date>2022/03/04</ref-web-visited-date>
+</ref-doc>
+<ref-doc-list></ref-doc-list>
+
+<script>
+function assert(actual, expected) {
+  console.log('assertion for: '+ actual);
+  let result = (actual === expected);
+  if(Array.isArray(actual) && Array.isArray(expected)){
+    if(actual.length == expected.length){
+      result = true;
+      for(let ai = 0; ai < actual.length; ai++){
+        if(actual[ai] === expected[ai]){
+          continue;
+        }
+        result = false;
+        break;
+      }
+    }else{
+      result = false;
+    }
+  }
+  if(result){
+    console.log('> success');
+    return true;
+  }else{
+    console.error('> failed' + '\nActual: ' + actual + '\nExpected: ' + expected);
+    return false;
+  }
+}
+
+</script>
+<style>
+    table{
+        border: 1px solid black;
+    }
+    th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<table>
+    <caption>テストケース</caption>
+    <thead>
+        <tr><th scope="col">#</th><th scope="col">case</th><th scope="col">result</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th><td>init check</td><td>
+            <span id="test1result"></span>
+            <script>
+                console.log('test #1');
+                referenceDocs.fn.init();
+                let as1 = assert(0, referenceDocs.val._refCnt);
+                let as2 = assert([], referenceDocs.val._docInfoList);
+                let as3 = assert([], referenceDocs.val._referenceList);
+                if(as1 && as2 && as3){
+                    document.getElementById('test1result').innerHTML = 'success';
+                }else{
+                    document.getElementById('test1result').innerHTML = 'failed';
+                    document.getElementById('test1result').style.color = 'red';
+                }
+            </script>
+            </td>
+        </tr>
+
+
+    </tbody>
+</table>
+
+
+</body>
+</html>
