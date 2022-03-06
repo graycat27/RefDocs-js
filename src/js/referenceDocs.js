@@ -146,7 +146,7 @@ let referenceDocs = (function () {
             }
         },
 
-        _docInfoList = [],
+        _docInfoList: [],
         hasSameIdInfo(refId){
             _docInfoList.forEach((info)=>{
                 if(info.docId == refId){
@@ -196,7 +196,7 @@ let referenceDocs = (function () {
             }else{
                 return docIdx;
             }
-        }
+        },
         getInfo(refId){
             if(hasSameIdInfo(refId)){
                 const docInfo = _docInfoList.find((info)=>(info.docId == refId));
@@ -218,8 +218,8 @@ let referenceDocs = (function () {
         _idPrefix(){
             return 'refDoc-refId-';
         },
-        _refCnt = 0,
-        _referenceList = [],
+        _refCnt: 0,
+        _referenceList: [],
         addReference(docId, pages){
             let ref = val.emptyRefInfo();
             ref.refNo = _refCnt;
@@ -237,7 +237,7 @@ let referenceDocs = (function () {
                     ref.docPages = reference.docPages;
                     references.push(ref);
                 }
-            });
+            );
             return references;
         },
         getAllReference(){
