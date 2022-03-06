@@ -258,3 +258,91 @@ function testCase10(){
         document.getElementById('test10result').style.color = 'red';
     }
 }
+
+function testCase11(){
+    console.log('test #11');
+    referenceDocs.fn.init();
+    referenceDocs.val.addReference('id1', 'p.1');
+    const ref11_0 = referenceDocs.val._referenceList[0];
+    const ref11_1 = referenceDocs.val._refCnt;
+    const as11_0 = assert({
+        refNo: 0,
+        docId: 'id1',
+        docPages: 'p.1'
+    }, ref11_0);
+    const as11_1 = assert(1, ref11_1);
+    if(as11_0 && as11_1){
+        document.getElementById('test11result').innerHTML = 'success';
+    }else{
+        document.getElementById('test11result').innerHTML = 'failed';
+        document.getElementById('test11result').style.color = 'red';
+    }
+}
+
+function testCase12(){
+    console.log('test #12');
+    referenceDocs.fn.init();
+    referenceDocs.val.addReference('id1', 'p.1');
+    referenceDocs.val.addReference('id1', 'p.1');
+    const ref12_0 = referenceDocs.val._referenceList[0];
+    const ref12_1 = referenceDocs.val._referenceList[1];
+    const ref12_2 = referenceDocs.val._refCnt;
+    const as12_0 = assert({
+        refNo: 0,
+        docId: 'id1',
+        docPages: 'p.1'
+    }, ref12_0);
+    const as12_1 = assert({
+        refNo: 1,
+        docId: 'id1',
+        docPages: 'p.1'
+    }, ref12_1);
+    const as12_2 = assert(2, ref12_2);
+    if(as12_0 && as12_1 && as12_2){
+        document.getElementById('test12result').innerHTML = 'success';
+    }else{
+        document.getElementById('test12result').innerHTML = 'failed';
+        document.getElementById('test12result').style.color = 'red';
+    }
+}
+
+function testCase13(){
+    const ref13_0 = referenceDocs.val.getReference('id1');
+    const as13_0 = assert([{
+        refNo: 0,
+        docId: 'id1',
+        docPages: 'p.1'
+    },{
+        refNo: 1,
+        docId: 'id1',
+        docPages: 'p.1'
+    }], ref13_0);
+    if(as13_0){
+        document.getElementById('test13result').innerHTML = 'success';
+    }else{
+        document.getElementById('test13result').innerHTML = 'failed';
+        document.getElementById('test13result').style.color = 'red';
+    }
+}
+
+function testCase14(){
+    referenceDocs.fn.init();
+    referenceDocs.val.addReference('id1', 'p.1');
+    referenceDocs.val.addReference('id2', 'p.1');
+    const ref14_0 = referenceDocs.val.getAllReference();
+    const as14_0 = assert([{
+        refNo: 0,
+        docId: 'id1',
+        docPages: 'p.1'
+    },{
+        refNo: 1,
+        docId: 'id2',
+        docPages: 'p.1'
+    }], ref14_0);
+    if(as14_0){
+        document.getElementById('test14result').innerHTML = 'success';
+    }else{
+        document.getElementById('test14result').innerHTML = 'failed';
+        document.getElementById('test14result').style.color = 'red';
+    }
+}
