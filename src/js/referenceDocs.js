@@ -138,6 +138,21 @@ class RefWebVisitedDateTag extends HTMLElement {
     }
 }
 
+class RefDocListTag extends HTMLElement {
+    tagName(){
+        return 'ref-doc-list';
+    }
+
+    constructor(){
+        super();
+        //hoge
+    }
+
+    connectedCallback(){
+        referenceDocs.fn.refDocListTagFunc(this);
+    }
+}
+
 let referenceDocs = (function () {
     'use strict';
     let val = {
@@ -291,6 +306,7 @@ let referenceDocs = (function () {
             customElements.define(RefBookPublishedDateTag.prototype.tagName(), RefBookPublishedDateTag);
             customElements.define(RefWebLinkTag.prototype.tagName(), RefWebLinkTag);
             customElements.define(RefWebVisitedDateTag.prototype.tagName(), RefWebVisitedDateTag);
+            customElements.define(RefDocListTag.prototype.tagName(), RefDocListTag);
         },
 
         // custom tags actions
@@ -378,6 +394,9 @@ let referenceDocs = (function () {
 
         },
         refWebVisitedDateTagFunc(){
+
+        },
+        refDocListTagFunc(){
 
         },
 
