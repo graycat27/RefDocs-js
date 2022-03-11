@@ -7,8 +7,9 @@
  * This provide reference documents list for your HTML document.
  *
  * usage
- * <p>it says "quoted document"<ref-doc doc-id="bookSource" doc-pages="p.27"></ref-doc>.
- * Also, the other one says "document quoted"<ref-doc doc-id="webSource"></ref-doc>.</p>
+ * <p>it says <q data-doc-id="bookSource" data-doc-pages="p.27">quoted document</q>.
+ * The other one said, <blockquote doc-id="webSource">document ..long.. quoted.</blockquote>
+ * But the other says <q data-doc-id="otherSource" data-doc-pages="p.72">quote tag is good</q>.</p>
  * <ref-doc>
  *    <ref-doc-id>bookSource</ref-doc-id>
  *    <ref-doc-name>document name</ref-doc-name>
@@ -22,8 +23,16 @@
  *    <ref-doc-author>who write it</ref-doc-author>
  *    <ref-web-link>https://yui-kitamura.eng.pro/hoge</ref-web-link>
  *    <ref-web-visited-date>2022/03/04</ref-web-visited-date>
-  * </ref-doc>
- * <ref-doc-list></ref-doc-list>
+ * </ref-doc>
+ * <ref-doc-list>
+ *    <ref-doc>
+ *       <ref-doc-id>otherSource</ref-doc-id>
+ *       <ref-doc-name>other document name</ref-doc-name>
+ *       <ref-doc-auther>writer name</ref-doc-auther>
+ *       <ref-book-publisher>published by</ref-book-publisher>
+ *       <ref-book-published-date>2022/03/11</ref-book-published-date>
+ *    </ref-doc>
+ * </ref-doc-list>
  */
 class RefDocTag extends HTMLElement {
     tagName(){
