@@ -389,20 +389,32 @@ let referenceDocs = (function () {
         },
 
         referenceCollection(){
-            let quoteElements = document.querySelector('q[data-doc-id],blockquote[data-doc-id]');
+            let quoteElements = document.querySelectorAll('q[data-doc-id],blockquote[data-doc-id],ref-doc-list');
+            const refDocListTagName = RefDocListTag.prototype.tagName().toUpperCase();
             quoteElements.forEach((ele)=>{
-                const attrDocId = ele.dataset.docId;
-                const attrDocPages = ele.dataset.docPages;
-                let refInfo = val.emptyRefInfo();
-                refInfo.docId = attrDocId;
-                refInfo.docPages = attrDocPages;
-                console.dir(refInfo);
-                const refNum = val.addReference(refInfo.docId, refInfo.docPages);
-
-                if(refNum){
-                    thisElement.dataset.refNum = refNum;
+                if(ele.tagName.toUpperCase() == refDocListTagName){
+                    markListPosition(ele);
+                }else{
+                    addNewReference(ele);
                 }
             });
+
+        },
+
+        addNewReference(ele){
+            const attrDocId = ele.dataset.docId;
+            const attrDocPages = ele.dataset.docPages;
+            let refInfo = val.emptyRefInfo();
+            refInfo.docId = attrDocId;
+            refInfo.docPages = attrDocPages;
+
+            const refNum = val.addReference(refInfo.docId, refInfo.docPages);
+            if(refNum){
+                ele.dataset.refNum = refNum;
+            }
+        },
+
+        markListPosition(ele){
 
         },
 
@@ -417,4 +429,5 @@ let referenceDocs = (function () {
 window.addEventListener('DOMContentLoaded', function(){
     referenceDocs.fn.init();
     referenceDocs.fn.define();
+    referenceDocs.fn.referenceCollection();
 });
