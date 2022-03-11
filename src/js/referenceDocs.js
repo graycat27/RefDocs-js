@@ -328,8 +328,8 @@ let referenceDocs = (function () {
 
             //c. do as a.
 
-            const attrDocId = (thisElement.hasAttribute('doc-id')) ? thisElement.getAttribute('doc-id') : null;
-            const attrDocPages = (thisElement.hasAttribute('doc-pages')) ? thisElement.getAttribute('doc-pages') : null;
+            const attrDocId = thisElement.dataset.docId;
+            const attrDocPages = thisElement.dataset.docPages;
 
             let childrenNodes = thisElement.childNodes;
             let docInfo = val.emptyDocInfo();
