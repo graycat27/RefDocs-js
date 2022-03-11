@@ -261,6 +261,9 @@ let referenceDocs = (function () {
             return 'refDoc-refId-';
         },
         _refCnt: 1,
+        getCurrentReferenceCount(){
+            return val._refCnt - 1;
+        },
         _referenceList: [],
         addReference(docId, pages){
             if(!(docId == null || docId == '')){
@@ -415,7 +418,7 @@ let referenceDocs = (function () {
         },
 
         markListPosition(ele){
-
+            ele.dataset.refNum = val.getCurrentReferenceCount();
         },
 
     };
