@@ -377,7 +377,7 @@ let referenceDocs = (function () {
             const refNum = val.addReference(refInfo.docId, refInfo.docPages);
 
             if(refNum){
-                thisElement.setAttribute('data-ref-num', refNum);
+                thisElement.dataset.refNum = refNum;
             }
 
         },
