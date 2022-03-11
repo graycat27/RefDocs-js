@@ -322,31 +322,13 @@ let referenceDocs = (function () {
 
         // custom tags actions
         refDocTagFunc(thisElement){
-            //pattern
-            //a. inserted on mark position
-            //b. inserted as document info
-            //c. both. As mark position and also have document info
-
-            //a. attribute doc-id and doc-pages when its a book
-            //   or only doc-id when its a website
-            //   Then, add doc info and ref info
-            //   Insert element that links to the list.
-
-            //b. no attribute doc-id.
-            //   Then, add doc info.
-
-            //c. do as a.
-
-            const attrDocId = thisElement.dataset.docId;
-            const attrDocPages = thisElement.dataset.docPages;
 
             let childrenNodes = thisElement.childNodes;
             let docInfo = val.emptyDocInfo();
-            docInfo.docId = attrDocId;
             childrenNodes.forEach((node)=>{
                 const nodeName = node.nodeName.toUpperCase();
                 if(RefDocIdTag.prototype.tagName().toUpperCase() === nodeName){
-                    docInfo.docId = attrDocId || node.textContent;  //attr or tagVal
+                    docInfo.docId = node.textContent;
                     return;
                 }
                 if(RefDocNameTag.prototype.tagName().toUpperCase() === nodeName){
@@ -376,18 +358,9 @@ let referenceDocs = (function () {
             });
 
             console.dir(docInfo);
-            let refInfo = val.emptyRefInfo();
-            refInfo.docId = attrDocId;
-            refInfo.docPages = attrDocPages;
-            console.dir(refInfo);
 
             val.addInfo(docInfo.docId, docInfo.docName, docInfo.docAuthor,
                 docInfo.docPublisher, docInfo.docPubDate, docInfo.docLink, docInfo.docVisitedDate);
-            const refNum = val.addReference(refInfo.docId, refInfo.docPages);
-
-            if(refNum){
-                thisElement.dataset.refNum = refNum;
-            }
 
         },
         refDocIdTagFunc(){
@@ -412,6 +385,24 @@ let referenceDocs = (function () {
 
         },
         refDocListTagFunc(){
+
+        },
+
+        referenceCollection(){
+            let quoteElements = document.querySelector('q[data-doc-id],blockquote[data-doc-id]');
+            quoteElements.forEach((ele)=>{
+                const attrDocId = ele.dataset.docId;
+                const attrDocPages = ele.dataset.docPages;
+                let refInfo = val.emptyRefInfo();
+                refInfo.docId = attrDocId;
+                refInfo.docPages = attrDocPages;
+                console.dir(refInfo);
+                const refNum = val.addReference(refInfo.docId, refInfo.docPages);
+
+                if(refNum){
+                    thisElement.dataset.refNum = refNum;
+                }
+            });
 
         },
 
