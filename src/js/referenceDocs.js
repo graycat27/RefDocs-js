@@ -344,6 +344,24 @@ let referenceDocs = (function () {
             ele.dataset.refNum = val.getCurrentReferenceCount();
         },
 
+        renderList(){
+            let refListTags = document.querySelectorAll('ref-doc-list');
+            refListTags.forEach((listTag)=>{
+                console.dir(listTag);
+                //TODO implement this
+
+            });
+        },
+
+        renderQuoteSource(){
+            let references = document.querySelectorAll('[data-ref-num]:not(ref-doc-list)');
+            references.forEach((refTag)=>{
+                console.dir(refTag);
+                //TODO implement this
+
+            });
+        },
+
     };
 
     return {
@@ -356,4 +374,6 @@ window.addEventListener('DOMContentLoaded', function(){
     referenceDocs.fn.init();
     referenceDocs.fn.define();
     referenceDocs.fn.referenceCollection();
+    referenceDocs.fn.renderList();
+    referenceDocs.fn.renderQuoteSource();
 });
