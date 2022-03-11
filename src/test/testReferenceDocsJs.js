@@ -56,7 +56,7 @@ function assertObjectEquals(obj1, obj2){
 function testCase1(){
     console.log('test #1');
     referenceDocs.fn.init();
-    let as1_1 = assert(0, referenceDocs.val._refCnt);
+    let as1_1 = assert(1, referenceDocs.val._refCnt);
     let as1_2 = assert([], referenceDocs.val._docInfoList);
     let as1_3 = assert([], referenceDocs.val._referenceList);
     if(as1_1 && as1_2 && as1_3){
@@ -283,11 +283,11 @@ function testCase11(){
     const ref11_0 = referenceDocs.val._referenceList[0];
     const ref11_1 = referenceDocs.val._refCnt;
     const as11_0 = assert({
-        refNo: 0,
+        refNo: 1,
         docId: 'id1',
         docPages: 'p.1'
     }, ref11_0);
-    const as11_1 = assert(1, ref11_1);
+    const as11_1 = assert(2, ref11_1);
     if(as11_0 && as11_1){
         document.getElementById('test11result').innerHTML = 'success';
     }else{
@@ -305,16 +305,16 @@ function testCase12(){
     const ref12_1 = referenceDocs.val._referenceList[1];
     const ref12_2 = referenceDocs.val._refCnt;
     const as12_0 = assert({
-        refNo: 0,
+        refNo: 1,
         docId: 'id1',
         docPages: 'p.1'
     }, ref12_0);
     const as12_1 = assert({
-        refNo: 1,
+        refNo: 2,
         docId: 'id1',
         docPages: 'p.1'
     }, ref12_1);
-    const as12_2 = assert(2, ref12_2);
+    const as12_2 = assert(3, ref12_2);
     if(as12_0 && as12_1 && as12_2){
         document.getElementById('test12result').innerHTML = 'success';
     }else{
@@ -327,11 +327,11 @@ function testCase13(){
     console.log('test #13');
     const ref13_0 = referenceDocs.val.getReference('id1');
     const as13_0 = assert([{
-        refNo: 0,
+        refNo: 1,
         docId: 'id1',
         docPages: 'p.1'
     },{
-        refNo: 1,
+        refNo: 2,
         docId: 'id1',
         docPages: 'p.1'
     }], ref13_0);
@@ -350,11 +350,11 @@ function testCase14(){
     referenceDocs.val.addReference('id2', 'p.1');
     const ref14_0 = referenceDocs.val.getAllReference();
     const as14_0 = assert([{
-        refNo: 0,
+        refNo: 1,
         docId: 'id1',
         docPages: 'p.1'
     },{
-        refNo: 1,
+        refNo: 2,
         docId: 'id2',
         docPages: 'p.1'
     }], ref14_0);
@@ -373,7 +373,7 @@ function testCase15(){
     referenceDocs.val.addReference(null, 'p.1');
     const ref15_0 = referenceDocs.val.getAllReference();
     const as15_0 = assert([{
-        refNo: 0,
+        refNo: 1,
         docId: 'id1',
         docPages: null
     }], ref15_0);

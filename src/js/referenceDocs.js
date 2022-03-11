@@ -251,7 +251,7 @@ let referenceDocs = (function () {
         _idPrefix(){
             return 'refDoc-refId-';
         },
-        _refCnt: 0,
+        _refCnt: 1,
         _referenceList: [],
         addReference(docId, pages){
             if(!(docId == null || docId == '')){
@@ -261,7 +261,7 @@ let referenceDocs = (function () {
                 ref.docPages = pages;
                 val._referenceList.push(ref);
                 val._refCnt += 1;
-                return val._refCnt;
+                return ref.refNo;
             }
             return null;
         },
@@ -294,7 +294,7 @@ let referenceDocs = (function () {
     let fn = {
 
         init(){
-            val._refCnt = 0;
+            val._refCnt = 1;
             val._docInfoList = [];
             val._referenceList = [];
         },
