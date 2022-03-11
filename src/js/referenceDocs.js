@@ -395,7 +395,7 @@ let referenceDocs = (function () {
             let quoteElements = document.querySelectorAll('q[data-doc-id],blockquote[data-doc-id],ref-doc-list');
             const refDocListTagName = RefDocListTag.prototype.tagName().toUpperCase();
             quoteElements.forEach((ele)=>{
-                if(ele.tagName.toUpperCase() == refDocListTagName){
+                if(ele.nodeName.toUpperCase() == refDocListTagName){
                     fn.markListPosition(ele);
                 }else{
                     fn.addNewReference(ele);
