@@ -396,9 +396,9 @@ let referenceDocs = (function () {
             const refDocListTagName = RefDocListTag.prototype.tagName().toUpperCase();
             quoteElements.forEach((ele)=>{
                 if(ele.tagName.toUpperCase() == refDocListTagName){
-                    markListPosition(ele);
+                    fn.markListPosition(ele);
                 }else{
-                    addNewReference(ele);
+                    fn.addNewReference(ele);
                 }
             });
 
