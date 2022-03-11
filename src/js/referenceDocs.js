@@ -28,7 +28,7 @@
  *    <ref-doc>
  *       <ref-doc-id>otherSource</ref-doc-id>
  *       <ref-doc-name>other document name</ref-doc-name>
- *       <ref-doc-auther>writer name</ref-doc-auther>
+ *       <ref-doc-author>writer name</ref-doc-author>
  *       <ref-book-publisher>published by</ref-book-publisher>
  *       <ref-book-published-date>2022/03/11</ref-book-published-date>
  *    </ref-doc>
