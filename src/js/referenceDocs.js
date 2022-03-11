@@ -261,7 +261,9 @@ let referenceDocs = (function () {
                 ref.docPages = pages;
                 val._referenceList.push(ref);
                 val._refCnt += 1;
+                return val._refCnt;
             }
+            return null;
         },
         getReference(docId){
             let references = [];
@@ -372,7 +374,11 @@ let referenceDocs = (function () {
 
             val.addInfo(docInfo.docId, docInfo.docName, docInfo.docAuthor,
                 docInfo.docPublisher, docInfo.docPubDate, docInfo.docLink, docInfo.docVisitedDate);
-            val.addReference(refInfo.docId, refInfo.docPages);
+            const refNum = val.addReference(refInfo.docId, refInfo.docPages);
+
+            if(refNum){
+                thisElement.setAttribute('data-ref-num', refNum);
+            }
 
         },
         refDocIdTagFunc(){
