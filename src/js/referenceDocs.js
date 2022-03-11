@@ -38,12 +38,9 @@ class RefDocTag extends HTMLElement {
     tagName(){
         return 'ref-doc';
     }
-
     constructor(){
         super();
-        //hoge
     }
-
     connectedCallback(){
         referenceDocs.fn.refDocTagFunc(this);
     }
@@ -52,113 +49,64 @@ class RefDocIdTag extends HTMLElement {
     tagName(){
         return 'ref-doc-id';
     }
-
     constructor(){
         super();
-        //hoge
-    }
-
-    connectedCallback(){
-        referenceDocs.fn.refDocIdTagFunc(this);
     }
 }
 class RefDocNameTag extends HTMLElement {
     tagName(){
         return 'ref-doc-name';
     }
-
     constructor(){
         super();
-        //hoge
-    }
-
-    connectedCallback(){
-        referenceDocs.fn.refDocNameTagFunc(this);
     }
 }
 class RefDocAuthorTag extends HTMLElement {
     tagName(){
         return 'ref-doc-author';
     }
-
     constructor(){
         super();
-        //hoge
-    }
-
-    connectedCallback(){
-        referenceDocs.fn.refDocAuthorTagFunc(this);
     }
 }
 class RefBookPublisherTag extends HTMLElement {
     tagName(){
         return 'ref-book-publisher';
     }
-
     constructor(){
         super();
-        //hoge
-    }
-
-    connectedCallback(){
-        referenceDocs.fn.refBookPublisherTagFunc(this);
     }
 }
 class RefBookPublishedDateTag extends HTMLElement {
     tagName(){
         return 'ref-book-published-date';
     }
-
     constructor(){
         super();
-        //hoge
-    }
-
-    connectedCallback(){
-        referenceDocs.fn.refBookPublishedDateTagFunc(this);
     }
 }
 class RefWebLinkTag extends HTMLElement {
     tagName(){
         return 'ref-web-link';
     }
-
     constructor(){
         super();
-        //hoge
-    }
-
-    connectedCallback(){
-        referenceDocs.fn.refWebLinkTagFunc(this);
     }
 }
 class RefWebVisitedDateTag extends HTMLElement {
     tagName(){
         return 'ref-web-visited-date';
     }
-
     constructor(){
         super();
-        //hoge
-    }
-
-    connectedCallback(){
-        referenceDocs.fn.refWebVisitedDateTagFunc(this);
     }
 }
-
 class RefDocListTag extends HTMLElement {
     tagName(){
         return 'ref-doc-list';
     }
-
     constructor(){
         super();
-        //hoge
-    }
-
-    connectedCallback(){
-        referenceDocs.fn.refDocListTagFunc(this);
     }
 }
 
@@ -363,31 +311,8 @@ let referenceDocs = (function () {
                 docInfo.docPublisher, docInfo.docPubDate, docInfo.docLink, docInfo.docVisitedDate);
 
         },
-        refDocIdTagFunc(){
 
-        },
-        refDocNameTagFunc(){
-
-        },
-        refDocAuthorTagFunc(){
-
-        },
-        refBookPublisherTagFunc(){
-
-        },
-        refBookPublishedDateTagFunc(){
-
-        },
-        refWebLinkTagFunc(){
-
-        },
-        refWebVisitedDateTagFunc(){
-
-        },
-        refDocListTagFunc(){
-
-        },
-
+        // generate data functions
         referenceCollection(){
             let quoteElements = document.querySelectorAll('q[data-doc-id],blockquote[data-doc-id],ref-doc-list');
             const refDocListTagName = RefDocListTag.prototype.tagName().toUpperCase();
