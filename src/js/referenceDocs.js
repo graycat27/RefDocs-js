@@ -324,6 +324,7 @@ let referenceDocs = (function () {
                 }
             });
 
+            //TODO missing list recover
         },
 
         addNewReference(ele){
