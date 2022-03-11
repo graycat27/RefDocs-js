@@ -359,9 +359,6 @@ let referenceDocs = (function () {
                     return;
                 }
             });
-
-            console.dir(docInfo);
-
             val.addInfo(docInfo.docId, docInfo.docName, docInfo.docAuthor,
                 docInfo.docPublisher, docInfo.docPubDate, docInfo.docLink, docInfo.docVisitedDate);
 
